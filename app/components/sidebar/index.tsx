@@ -6,8 +6,10 @@ import { BiSearch } from "react-icons/bi"
 import Box from "../box";
 import SidebarItem from "../sidebarItem";
 import Library from "../library";
+import getTracks, { Track } from "@/app/services/tracks";
 
 interface SidebarProps {
+    tracks: Track[];
     children : React.ReactNode;
 }
 
