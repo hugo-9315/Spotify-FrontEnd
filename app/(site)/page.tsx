@@ -22,6 +22,19 @@ export default async function Home() {
       <div className="mt-2 mb-7 px-6">
         <div className="flex justify-between items-center">
           <h1 className="text-whie text-2xl font-semibold">
+            Made For You
+          </h1>
+        </div>
+        <PageContent tracks={tracks}/>
+        {/* <div>
+          {tracks.map((track) => (
+            <div key={track._id}>{track.title}</div>
+          ))}
+        </div> */}
+      </div>
+      <div className="mt-2 mb-7 px-6">
+        <div className="flex justify-between items-center">
+          <h1 className="text-whie text-2xl font-semibold">
             Newest Songs
           </h1>
         </div>
