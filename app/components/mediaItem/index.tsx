@@ -9,20 +9,6 @@ interface MediaItemProps {
 }
 
 const MediaItem: React.FC<MediaItemProps> = ({ data, onClick }) => {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-
-  useEffect(() => {
-    const loadImage = async () => {
-      try {
-        const url = await useLoadImageFromBackend(data);
-        setImageUrl(url);
-      } catch (error) {
-        console.error("Error loading image:", error);
-      }
-    };
-
-    loadImage();
-  }, [data]);
 
   const handleClick = () => {
     if (onClick) {

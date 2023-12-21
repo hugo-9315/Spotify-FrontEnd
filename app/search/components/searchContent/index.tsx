@@ -37,6 +37,7 @@ const SearchContent: React.FC<SearchContentProps> = ({tracks}) => {
         >
           <div className="flex-1">
             <MediaItem 
+            onClick={() => {}}
               data={track}
             />
           </div>

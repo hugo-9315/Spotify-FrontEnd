@@ -3,36 +3,13 @@ import { TbPlaylist } from "react-icons/tb";
 import { AiOutlinePlus } from "react-icons/ai";
 import getTracks, { Track } from "@/app/services/tracks";
 import MediaItem from "../mediaItem";
-import * as mm from 'music-metadata';
-import fs from 'fs'
 
 interface LibraryProps {
-    tracks : Track[];
   // Vous n'avez plus besoin de passer les tracks en tant que prop
 }
 
 const Library: React.FC<LibraryProps> = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
-
-  const testtrack = 'https://tracksbucket.s3.eu-west-3.amazonaws.com/1.%20Elvis%20Presley%20-%20Blue%20Suede%20Shoes.m4a';
-
-// Library component (ou tout autre composant qui doit récupérer les métadonnées côté client)
-
-useEffect(() => {
-  const fetchMetadata = async () => {
-    try {
-      const response = await fetch(testtrack); // Remplacez l'URL par celle de votre serveur
-      const metadata = await response.json();
-      console.log('hello', metadata);
-    } catch (error) {
-      console.error('Error fetching metadata:', error);
-    }
-  };
-
-  fetchMetadata();
-}, []);
-
-  
 
   useEffect(() => {
     const fetchTracks = async () => {
@@ -50,6 +27,14 @@ useEffect(() => {
 
   console.log('Tracks:', tracks);
 
+  // Fonction pour mélanger aléatoirement les tracks
+  const shuffleTracks = (array: Track[]) => {
+    const shuffledArray = [...array].sort(() => Math.random() - 0.5);
+    return shuffledArray;
+  };
+
+  const shuffledTracks = shuffleTracks(tracks);
+
   return (
     <div className="flex flex-col">
       <div className="flex items-center justify-between px-5 pt-4">
@@ -63,9 +48,8 @@ useEffect(() => {
         />
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
-        {tracks.slice(0,10).map((track) => (
-            <MediaItem onClick={() => {}} key={track._id} data={track}/>
-        //  <div key={track._id}>{track.title}</div>
+        {shuffledTracks.slice(0, 10).map((track) => (
+          <MediaItem onClick={() => {}} key={track._id} data={track} />
         ))}
       </div>
     </div>

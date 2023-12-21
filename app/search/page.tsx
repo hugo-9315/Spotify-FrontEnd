@@ -17,12 +17,6 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = ({ searchParams }) => {
-
-    AWS.config.update({
-        accessKeyId: 'AKIA2MR2B35EVZAG5EW4',
-        secretAccessKey: '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',
-        region: 'eu-west-3',
-      });
       
       // Création d'une instance S3
       const s3 = new AWS.S3();
