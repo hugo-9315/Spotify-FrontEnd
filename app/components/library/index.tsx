@@ -1,20 +1,20 @@
+// Library.tsx
+
 import React, { useEffect, useState } from "react";
 import { TbPlaylist } from "react-icons/tb";
 import { AiOutlinePlus } from "react-icons/ai";
-import getTracks, { Track } from "@/app/services/tracks";
+import getTracks, { Track, Artist, getAllArtists } from "@/app/services/tracks";
 import MediaItem from "../mediaItem";
 
-interface LibraryProps {
-  // Vous n'avez plus besoin de passer les tracks en tant que prop
-}
+interface LibraryProps {}
 
 const Library: React.FC<LibraryProps> = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
+  const [artists, setArtists] = useState<Artist[]>([]);
 
   useEffect(() => {
     const fetchTracks = async () => {
       try {
-        // Récupérez les données depuis votre service
         const data = await getTracks();
         setTracks(data);
       } catch (error) {
@@ -22,12 +22,22 @@ const Library: React.FC<LibraryProps> = () => {
       }
     };
 
+    const fetchArtists = async () => {
+      try {
+        const data = await getAllArtists();
+        setArtists(data);
+      } catch (error) {
+        console.error("Artists Fail:", error);
+      }
+    };
+
     fetchTracks();
-  }, []); // Le tableau vide signifie que cela ne s'exécutera qu'une fois après le montage initial
+    fetchArtists();
+  }, []);
 
-  console.log('Tracks:', tracks);
+  // console.log('Tracks:', tracks);
+  console.log('Allo:', artists);
 
-  // Fonction pour mélanger aléatoirement les tracks
   const shuffleTracks = (array: Track[]) => {
     const shuffledArray = [...array].sort(() => Math.random() - 0.5);
     return shuffledArray;

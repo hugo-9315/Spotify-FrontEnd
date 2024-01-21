@@ -4,8 +4,6 @@ import Header from "../components/header";
 import SearchInput from "../components/searchInput";
 import SearchContent from "./components/searchContent";
 import useGetSongById from '../hooks/useGetSongById';
-import { Howl } from 'howler';
-import mm from 'music-metadata-browser';
 import * as AWS from 'aws-sdk';
 
 

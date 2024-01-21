@@ -37,6 +37,3 @@ const SongItem: React.FC<SongItemProps> = ({ data, onClick }) => {
 };
 
 export default SongItem;
-
-
-  //"https://tracksbucket.s3.eu-west-3.amazonaws.com/Elvis%20Presley%20(Japan%20Papersleeve%2024%20Bit%20%20Remaster)/cover.jpg"
