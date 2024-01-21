@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { TbPlaylist } from "react-icons/tb";
 import { AiOutlinePlus } from "react-icons/ai";
-import getTracks, { Track, Artist, getAllArtists } from "@/app/services/tracks";
+import getTracks, { Track, Artist, getOneArtist } from "@/app/services/tracks";
 import MediaItem from "../mediaItem";
 
 interface LibraryProps {}
@@ -22,17 +22,17 @@ const Library: React.FC<LibraryProps> = () => {
       }
     };
 
-    const fetchArtists = async () => {
-      try {
-        const data = await getAllArtists();
-        setArtists(data);
-      } catch (error) {
-        console.error("Artists Fail:", error);
-      }
-    };
+    // const fetchArtists = async () => {
+    //   try {
+    //     const data = await getOneArtist(artist); // Utilisez getOneArtist ici pour obtenir un artiste spécifique par son ID
+    //     setArtists(data);
+    //   } catch (error) {
+    //     console.error("Artists Fail:", error);
+    //   }
+    // };
 
     fetchTracks();
-    fetchArtists();
+    // fetchArtists();
   }, []);
 
   // console.log('Tracks:', tracks);
@@ -59,7 +59,7 @@ const Library: React.FC<LibraryProps> = () => {
       </div>
       <div className="flex flex-col gap-y-2 mt-4 px-3">
         {shuffledTracks.slice(0, 10).map((track) => (
-          <MediaItem onClick={() => {}} key={track._id} data={track} />
+          <MediaItem onClick={() => {}} key={track._id} data={track}   />
         ))}
       </div>
     </div>
