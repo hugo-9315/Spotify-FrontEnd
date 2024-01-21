@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import ListItem from "../components/listItem";
-import getTracks, { Track } from "../services/tracks"; // Importez le type Track
+import getTracks, { Track } from "../services/tracks";
 import PageContent from "./pageContent";
 
 export const revalidate = 0;
