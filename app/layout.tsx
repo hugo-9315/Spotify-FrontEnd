@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 import './globals.css'
 import Sidebar from './components/sidebar'
-import Player from './components/player'
+// import Player from './components/player'
 
 const font = Figtree({ subsets: ['latin'] })
 
