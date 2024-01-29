@@ -1,19 +1,19 @@
-// "use client";
+"use client";
 
-// import useGetSongById from "@/app/hooks/useGetSongById";
-// import usePlayer from "@/app/hooks/usePlayer";
+import useGetSongById from "@/app/hooks/useGetSongById";
+import usePlayer from "@/app/hooks/usePlayer";
 
-// const Player = () => {
-//     const player = usePlayer();
-//     const {track} = useGetSongById(player.activeId)
+const Player = () => {
+    const player = usePlayer();
+    const {track} = useGetSongById(player.activeId)
 
-//     const trackURl = useLoadTrackUrl(track);
+    const trackURl = useLoadTrackUrl(track);
 
-//     return ( 
-//         <div>
-//             Player
-//         </div>
-//      );
-// }
+    return ( 
+        <div>
+            Player
+        </div>
+     );
+}
  
-// export default Player;
+export default Player;
